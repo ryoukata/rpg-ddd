@@ -17,14 +17,17 @@ public class Player {
     private final Level level;
     /** player's status */
     private final Status status;
+    /** player's experience point */
+    private final ExperiencePoint experiencePoint;
 
     public Player(final PlayerName playerName, final AttackPower attackPower, final DefensePower defensePower,
-                  final Level level, final Status status) {
+                  final Level level, final Status status, final ExperiencePoint experiencePoint) {
         this.playerName = playerName;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
         this.level = level;
         this.status = status;
+        this.experiencePoint = experiencePoint;
     }
 
 }

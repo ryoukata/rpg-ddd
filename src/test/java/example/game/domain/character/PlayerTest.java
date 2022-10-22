@@ -12,13 +12,15 @@ public class PlayerTest {
         final DefensePower defensePower = new DefensePower(5);
         final Level level = new Level(0);
         final Status status = new Status(Status.StatusValue.NORMAL);
+        final ExperiencePoint experiencePoint = new ExperiencePoint(0);
 
-        final Player player = new Player(playerName, attackPower, defensePower, level, status);
+        final Player player = new Player(playerName, attackPower, defensePower, level, status, experiencePoint);
         assertEquals(playerName.getPlayerName(), player.getPlayerName().getPlayerName());
         assertEquals(attackPower.getAttackPower(), player.getAttackPower().getAttackPower());
         assertEquals(defensePower.getDefensePower(), player.getDefensePower().getDefensePower());
         assertEquals(level.getLevel(), player.getLevel().getLevel());
         assertEquals(status.getStatus(), player.getStatus().getStatus());
+        assertEquals(experiencePoint.getExperiencePoint(), player.getExperiencePoint().getExperiencePoint());
     }
 
 }
