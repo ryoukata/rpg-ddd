@@ -22,10 +22,12 @@ public class Player {
     private final ExperiencePoint experiencePoint;
     /** player's equipment manager */
     private final EquipmentManager equipmentManager;
+    /** player's hit point */
+    private final HitPoint hitPoint;
 
     public Player(final PlayerName playerName, final AttackPower attackPower, final DefensePower defensePower,
                   final Level level, final Status status, final ExperiencePoint experiencePoint,
-                  final EquipmentManager equipmentManager) {
+                  final EquipmentManager equipmentManager, final HitPoint hitPoint) {
         this.playerName = playerName;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
@@ -33,6 +35,7 @@ public class Player {
         this.status = status;
         this.experiencePoint = experiencePoint;
         this.equipmentManager = equipmentManager;
+        this.hitPoint = hitPoint;
     }
 
 }
