@@ -16,8 +16,9 @@ public class PlayerTest {
         final Status status = new Status(Status.StatusValue.NORMAL);
         final ExperiencePoint experiencePoint = new ExperiencePoint(0);
         final EquipmentManager equipmentManager = EquipmentManager.equipmentManagerFactory();
+        final HitPoint hitPoint = HitPoint.hitPointFactory();
 
-        final Player player = new Player(playerName, attackPower, defensePower, level, status, experiencePoint, equipmentManager);
+        final Player player = new Player(playerName, attackPower, defensePower, level, status, experiencePoint, equipmentManager, hitPoint);
         assertEquals(playerName.getPlayerName(), player.getPlayerName().getPlayerName());
         assertEquals(attackPower.getAttackPower(), player.getAttackPower().getAttackPower());
         assertEquals(defensePower.getDefensePower(), player.getDefensePower().getDefensePower());
@@ -25,6 +26,7 @@ public class PlayerTest {
         assertEquals(status.getStatus(), player.getStatus().getStatus());
         assertEquals(experiencePoint.getExperiencePoint(), player.getExperiencePoint().getExperiencePoint());
         assertSame(equipmentManager, player.getEquipmentManager());
+        assertEquals(20, player.getHitPoint().getHitPoint());
     }
 
 }
