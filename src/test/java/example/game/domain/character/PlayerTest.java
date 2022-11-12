@@ -26,7 +26,7 @@ public class PlayerTest {
         assertEquals(status.getStatus(), player.getStatus().getStatus());
         assertEquals(experiencePoint.getExperiencePoint(), player.getExperiencePoint().getExperiencePoint());
         assertSame(equipmentManager, player.getEquipmentManager());
-        assertEquals(20, player.getHitPoint().getHitPoint());
+        assertSame(hitPoint, player.getHitPoint());
     }
 
 }
