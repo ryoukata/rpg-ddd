@@ -8,21 +8,26 @@ import lombok.Data;
 @Data
 public class HitPoint {
 
-    /** hit point */
-    private final int hitPoint;
+    /** max hit point */
+    private final int maxHitPoint;
+    /** current hit point */
+    private final int currentHitPoint;
+
 
     private HitPoint() {
-        this.hitPoint = 20;
+        this.maxHitPoint = 20;
+        this.currentHitPoint = 20;
     }
 
-    private HitPoint(final int hitPoint) {
-        if (hitPoint < 0) {
-            throw new IllegalArgumentException("must 0 or more hit point value: " + hitPoint);
+    private HitPoint(final int maxHitPoint, final int currentHitPoint) {
+        if (currentHitPoint < 0) {
+            throw new IllegalArgumentException("must 0 or more hit point value: " + currentHitPoint);
         }
-        if (hitPoint > 999) {
-            throw new IllegalArgumentException("must 999 or less hit point value: " + hitPoint);
+        if (currentHitPoint > 999) {
+            throw new IllegalArgumentException("must 999 or less hit point value: " + currentHitPoint);
         }
-        this.hitPoint = hitPoint;
+        this.maxHitPoint = maxHitPoint;
+        this.currentHitPoint = currentHitPoint;
     }
 
     /**
@@ -38,7 +43,11 @@ public class HitPoint {
      * @return HitPoint
      */
     public HitPoint recover(final int recoveryValue) {
-        return new HitPoint(this.hitPoint + recoveryValue);
+        int recoveriedHitPoint = this.currentHitPoint + recoveryValue;
+        if (recoveriedHitPoint >= this.maxHitPoint) {
+            recoveriedHitPoint = this.maxHitPoint;
+        }
+        return new HitPoint(this.maxHitPoint, recoveriedHitPoint);
     }
 
     /**
@@ -47,7 +56,11 @@ public class HitPoint {
      * @return HitPoint
      */
     public HitPoint damage(final int damageValue) {
-        return new HitPoint(this.hitPoint - damageValue);
+        int damagedHitPoint = this.currentHitPoint - damageValue;
+        if (damagedHitPoint <= 0) {
+            damagedHitPoint = 0;
+        }
+        return new HitPoint(this.maxHitPoint, damagedHitPoint);
     }
 
 }
